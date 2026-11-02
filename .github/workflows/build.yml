@@ -21,13 +21,14 @@ jobs:
         with:
           distribution: temurin
           java-version: '16'
-          cache: gradle
 
-      - name: Grant execute permission
-        run: chmod +x gradlew
+      - name: Set up Gradle 7.3.3
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '7.3.3'
 
-      - name: Build mod
-        run: ./gradlew --no-daemon clean build
+      - name: Build AnimeDungeons
+        run: gradle --no-daemon clean build
 
       - name: Upload mod JAR
         uses: actions/upload-artifact@v4
