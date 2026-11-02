@@ -281,7 +281,7 @@ public class AnimeDungeonsMod implements ModInitializer {
     private int invite(ServerPlayerEntity p,String name) {
         if(p==null)return 0; UUID leader=partyOf.get(p.getUuid()); if(leader==null || !leader.equals(p.getUuid())) {tell(p,"§cفقط رهبر پارتی می‌تواند دعوت کند.");return 0;}
         ServerPlayerEntity target=server.getPlayerManager().getPlayer(name); if(target==null){tell(p,"§cبازیکن باید آنلاین باشد.");return 0;}
-        invites.put(target.getUuid(),leader); tell(target,"§eبرای پیوستن بزن: /adungeon party join "+p.getEntityName()); tell(p,"§aدعوت ارسال شد."); return 1;
+        invites.put(target.getUuid().toString(), leader);
     }
     private int joinParty(ServerPlayerEntity p,String leaderName) {
         if(p==null)return 0; ServerPlayerEntity leaderPlayer=server.getPlayerManager().getPlayer(leaderName); if(leaderPlayer==null){tell(p,"§cرهبر آنلاین نیست.");return 0;}
