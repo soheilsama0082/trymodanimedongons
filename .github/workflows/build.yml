@@ -1,0 +1,37 @@
+
+name: Build AnimeDungeons Fabric
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Java 16
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '16'
+          cache: gradle
+
+      - name: Grant execute permission
+        run: chmod +x gradlew
+
+      - name: Build mod
+        run: ./gradlew --no-daemon clean build
+
+      - name: Upload mod JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: AnimeDungeons-Fabric-1.16.5
+          path: build/libs/*.jar
+          if-no-files-found: error
