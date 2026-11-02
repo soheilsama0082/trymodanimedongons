@@ -8,7 +8,7 @@ An early source foundation for an anime-inspired dungeon RPG mod using Fabric Lo
 - Fabric Loader 0.11.7 or compatible 1.16.5 loader
 - Fabric API `0.42.0+1.16`
 - Java 16 for building/running this configured target
-- Gradle 6.8.x (the GitHub Actions runner uses Gradle setup and invokes Gradle directly)
+- Gradle 7.3.3 (provided by the GitHub Actions workflow; no Gradle Wrapper is included)
 
 ## Build with GitHub Actions
 
@@ -18,7 +18,7 @@ An early source foundation for an anime-inspired dungeon RPG mod using Fabric Lo
 4. If the job succeeds, download the `AnimeDungeons-Fabric-1.16.5` artifact. The JAR is under `build/libs/`.
 5. Put the mod JAR and the matching Fabric API JAR in the server's `mods` folder. Clients need Fabric Loader and Fabric API; for future client-visible custom models/animations they will also need the mod and any required resource assets.
 
-The workflow has not been executed in this environment. If it fails, use the first Gradle compiler/dependency error in the Actions log as the source of truth.
+The workflow uses the installed Gradle command and does not require `gradlew`. The workflow has not been executed in this environment. If it fails, use the first Gradle compiler/dependency error in the Actions log as the source of truth.
 
 ## First-run configuration
 
