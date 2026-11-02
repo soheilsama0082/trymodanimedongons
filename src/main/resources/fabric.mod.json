@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "animedungeons",
+  "version": "${version}",
+  "name": "AnimeDungeons",
+  "description": "Anime-inspired multi-layer dungeon RPG for Fabric 1.16.5.",
+  "authors": ["AnimeDungeons contributors"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": { "main": ["com.animedungeons.fabric.AnimeDungeonsMod"] },
+  "depends": {
+    "fabricloader": ">=0.11.7",
+    "fabric": "*",
+    "minecraft": "1.16.5",
+    "java": ">=16"
+  }
+}
